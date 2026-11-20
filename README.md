@@ -1,17 +1,17 @@
 # minmax.nvim
 
-A phosphor-green terminal colorscheme for Neovim, with restrained amber accents.
+A family of minimal terminal-inspired Neovim colorschemes. Each variant has its own native colorscheme name. No globals, setup options, or custom commands.
 
-## Palette
+## Variants
 
-- **Phosphor green:** primary text, keywords, and the theme's identity.
-- **Bright mint:** functions and focused elements.
-- **Forest green:** types, punctuation, comments, and secondary UI.
-- **Warm amber:** numbers, constants, operators, search, and selected syntax.
-- **Olive green:** strings, keeping code readable without introducing another loud color.
-- **Muted red:** errors and destructive diff changes.
+| Colorscheme | Character |
+| --- | --- |
+| `minmax-phosphor` | Phosphor green with restrained amber accents |
+| `minmax-mono` | Soft monochrome green, with no competing accent color |
+| `minmax-amber` | Warm amber terminal with subtle green details |
+| `minmax-oxide` | Muted oxidized teal with copper accents |
 
-The background is transparent, so the terminal controls the overall darkness.
+The original `minmax` name remains as an alias for `minmax-phosphor`.
 
 ## Installation
 
@@ -22,19 +22,17 @@ With lazy.nvim:
   "soulz3r/minmax.nvim",
   lazy = false,
   priority = 1000,
-  config = function()
-    vim.cmd.colorscheme("minmax")
-  end,
 }
 ```
 
-## Design
+Choose a variant directly:
 
-- CRT-inspired phosphor-green foundation.
-- Small amber accent for visual hierarchy.
-- Transparent editor and floating windows.
-- Native Neovim and Tree-sitter highlight groups.
-- No external dependencies.
+```lua
+vim.cmd.colorscheme("minmax-phosphor")
+-- or: minmax-mono, minmax-amber, minmax-oxide
+```
+
+All variants use a transparent background, so your terminal controls the overall darkness. They include native Neovim and Tree-sitter highlights and have no external dependencies.
 
 ## License
 
