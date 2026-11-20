@@ -46,10 +46,6 @@ No globals, setup calls, or custom commands are required.
 - C and C++ syntax support, with emphasis on readable declarations and control flow.
 - No external dependencies.
 
-## License
-
-MIT
-
 ## Terminal ports
 
 The same four palettes are available outside Neovim:
@@ -63,11 +59,14 @@ The same four palettes are available outside Neovim:
 
 ### WezTerm
 
-Copy the chosen TOML file into your WezTerm color schemes directory, then set:
+Put the chosen TOML file in a directory WezTerm scans for color schemes. On Windows, the most reliable option is to point `color_scheme_dirs` at the checked-out port directory:
 
 ```lua
+config.color_scheme_dirs = { "D:/path/to/minmax.nvim/ports/wezterm" }
 config.color_scheme = "minmax-phosphor"
 ```
+
+On POSIX systems, WezTerm also searches `~/.config/wezterm/colors`.
 
 The scheme keeps the terminal background opaque and uses the same foreground, cursor, selection, and ANSI palette as the Neovim variant.
 
@@ -87,4 +86,8 @@ Source the matching shell file from your shell startup:
 source /path/to/minmax.nvim/ports/fzf/minmax-phosphor.sh
 ```
 
-The fzf theme leaves the terminal background transparent and styles the prompt, highlights, selection, pointer, marker, border, and supporting UI with the selected Minmax palette.
+The fzf theme leaves the terminal background transparent and styles the prompt, highlights, current item, pointer, marker, border, and supporting UI with the selected Minmax palette.
+
+## License
+
+MIT
