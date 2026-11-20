@@ -16,7 +16,7 @@ compose_cursor = "#c5e39a"
 visual_bell = "#d97968"
 
 ansi = ["#100c07", "#d97968", "#b88748", "#9fbd78", "#80633c", "#c9ae7a", "#51402b", "#d6a45d"]
-brights = ["#51402b", "#d97968", "#f2cf91", "#c5e39a", "#b88748", "#c9ae7a", "#80633c", "#f2cf91"]
+brights = ["#51402b", "#d97968", "#d6a45d", "#c5e39a", "#b88748", "#c9ae7a", "#80633c", "#f2cf91"]
 
 [colors.indexed]
 16 = "#100c07"
