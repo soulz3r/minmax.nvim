@@ -49,3 +49,42 @@ No globals, setup calls, or custom commands are required.
 ## License
 
 MIT
+
+## Terminal ports
+
+The same four palettes are available outside Neovim:
+
+| Variant | WezTerm | Termux | fzf |
+| --- | --- | --- | --- |
+| Phosphor | `ports/wezterm/minmax-phosphor.toml` | `ports/termux/minmax-phosphor.properties` | `ports/fzf/minmax-phosphor.sh` |
+| Mono | `ports/wezterm/minmax-mono.toml` | `ports/termux/minmax-mono.properties` | `ports/fzf/minmax-mono.sh` |
+| Amber | `ports/wezterm/minmax-amber.toml` | `ports/termux/minmax-amber.properties` | `ports/fzf/minmax-amber.sh` |
+| Oxide | `ports/wezterm/minmax-oxide.toml` | `ports/termux/minmax-oxide.properties` | `ports/fzf/minmax-oxide.sh` |
+
+### WezTerm
+
+Copy the chosen TOML file into your WezTerm color schemes directory, then set:
+
+```lua
+config.color_scheme = "minmax-phosphor"
+```
+
+The scheme keeps the terminal background opaque and uses the same foreground, cursor, selection, and ANSI palette as the Neovim variant.
+
+### Termux
+
+Copy the chosen `.properties` file to `~/.termux/colors.properties`, then reload:
+
+```sh
+termux-reload-settings
+```
+
+### fzf
+
+Source the matching shell file from your shell startup:
+
+```sh
+source /path/to/minmax.nvim/ports/fzf/minmax-phosphor.sh
+```
+
+The fzf theme leaves the terminal background transparent and styles the prompt, highlights, selection, pointer, marker, border, and supporting UI with the selected Minmax palette.
