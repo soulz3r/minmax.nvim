@@ -1,14 +1,17 @@
 # minmax.nvim
 
-A minimal phosphor-green terminal colorscheme for Neovim.
+A phosphor-green terminal colorscheme for Neovim, with restrained amber accents.
 
 ## Palette
 
-- **Background:** transparent, allowing the terminal background through.
-- **Foreground:** phosphor green.
-- **Bright green:** emphasis, functions, and important syntax.
-- **Muted green:** comments and secondary UI.
-- **Red / yellow:** errors and warnings.
+- **Phosphor green:** primary text, keywords, and the theme's identity.
+- **Bright mint:** functions and focused elements.
+- **Forest green:** types, punctuation, comments, and secondary UI.
+- **Warm amber:** numbers, constants, operators, search, and selected syntax.
+- **Olive green:** strings, keeping code readable without introducing another loud color.
+- **Muted red:** errors and destructive diff changes.
+
+The background is transparent, so the terminal controls the overall darkness.
 
 ## Installation
 
@@ -17,6 +20,7 @@ With lazy.nvim:
 ```lua
 {
   "soulz3r/minmax.nvim",
+  lazy = false,
   priority = 1000,
   config = function()
     vim.cmd.colorscheme("minmax")
@@ -24,11 +28,12 @@ With lazy.nvim:
 }
 ```
 
-## Features
+## Design
 
-- Transparent background.
-- Green monochrome syntax with restrained diagnostic colors.
-- Native Neovim highlight groups.
+- CRT-inspired phosphor-green foundation.
+- Small amber accent for visual hierarchy.
+- Transparent editor and floating windows.
+- Native Neovim and Tree-sitter highlight groups.
 - No external dependencies.
 
 ## License
