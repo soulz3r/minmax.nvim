@@ -1,5 +1,5 @@
 # minmax.nvim amber palette for WezTerm.
-# Uses conventional ANSI roles with distinct hue families; Minmax's ten semantic colors remain exposed at indexes 16-31 for LS_COLORS.
+# Green-dominant ANSI palette. No blue, cyan, or magenta slots.
 # Load with: color_scheme = "minmax-amber"
 
 [colors]
@@ -15,8 +15,8 @@ split = "#51402b"
 compose_cursor = "#c5e39a"
 visual_bell = "#d97968"
 
-ansi = ["#100c07", "#d97968", "#9fbd78", "#d6a45d", "#7895b5", "#b57e83", "#78aaa4", "#d6a45d"]
-brights = ["#51402b", "#ee9a8d", "#c5e39a", "#f2cf91", "#a9bfdc", "#d5a0a0", "#a3d0c8", "#f2cf91"]
+ansi = ["#100c07", "#d97968", "#9fbd78", "#d6a45d", "#665b35", "#b8c98a", "#8fae70", "#d6a45d"]
+brights = ["#51402b", "#ee9a8d", "#c5e39a", "#f2cf91", "#9fbd78", "#dce8b5", "#b4ce92", "#f2cf91"]
 
 [colors.indexed]
 16 = "#100c07"
