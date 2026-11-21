@@ -57,7 +57,7 @@ The same four palettes are available outside Neovim:
 | Amber | `ports/wezterm/minmax-amber.toml` | `ports/termux/minmax-amber.properties` | `ports/fzf/minmax-amber.sh` |
 | Oxide | `ports/wezterm/minmax-oxide.toml` | `ports/termux/minmax-oxide.properties` | `ports/fzf/minmax-oxide.sh` |
 
-All ports now use the same semantic mapping from the Neovim palette. The 16 ANSI slots map to background, red, mid, accent, dim, string, muted, and foreground, followed by their bright counterparts. WezTerm deliberately leaves indexed colors 16-255 untouched so applications using the standard 256-color cube keep their expected colors.
+All ports use the same semantic mapping from the Neovim palette. ANSI slots 0-15 map to background, red, mid, accent, dim, string, muted, and foreground, followed by their bright counterparts. WezTerm also exposes ten named palette colors at indexes 16-25 for the matching `LS_COLORS` integration: black, foreground, bright, mid, dim, muted, accent, bright accent, string, and red. These ten slots intentionally replace the corresponding first ten xterm 256-color cube entries; indexes 26-255 remain untouched.
 
 ### WezTerm
 
