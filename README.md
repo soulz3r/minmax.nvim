@@ -57,7 +57,7 @@ The same four palettes are available outside Neovim:
 | Amber | `ports/wezterm/minmax-amber.toml` | `ports/termux/minmax-amber.properties` | `ports/fzf/minmax-amber.sh` |
 | Oxide | `ports/wezterm/minmax-oxide.toml` | `ports/termux/minmax-oxide.properties` | `ports/fzf/minmax-oxide.sh` |
 
-All ports use the same semantic mapping from the Neovim palette. ANSI slots 0-15 map to background, red, mid, accent, dim, string, muted, and foreground, followed by their bright counterparts. WezTerm also exposes ten named palette colors at indexes 16-25 for the matching `LS_COLORS` integration: black, foreground, bright, mid, dim, muted, accent, bright accent, string, and red. These ten slots intentionally replace the corresponding first ten xterm 256-color cube entries; indexes 26-255 remain untouched.
+All ports preserve the Neovim palette's identity without forcing every ANSI role into the dominant green hue. ANSI slots 0-15 follow the conventional terminal order: black, red, green, yellow, blue, magenta, cyan, and white, followed by their bright counterparts. Blue, magenta, and cyan are carefully muted supporting hues, so directory listings, compiler output, shell prompts, and terminal applications remain visually distinguishable. The mono variant keeps these supporting hues especially restrained. WezTerm also exposes ten named Minmax palette colors at indexes 16-25 for the matching `LS_COLORS` integration: black, foreground, bright, mid, dim, muted, accent, bright accent, string, and red. These ten slots intentionally replace the corresponding first ten xterm 256-color cube entries; indexes 26-255 remain untouched.
 
 ### WezTerm
 
@@ -88,7 +88,7 @@ Source the matching shell file from your shell startup:
 source /path/to/minmax.nvim/ports/fzf/minmax-phosphor.sh
 ```
 
-fzf keeps the terminal background transparent, gives the current selection a muted surface, and uses the variant accent for matches and prompt emphasis.
+fzf keeps the terminal background transparent and the current selection on a muted surface. Matches and prompts use the variant's warm accent, while headers and metadata use blue, pointers use cyan, and spinners use magenta. This gives each part of the picker a clear role instead of painting the whole interface green.
 
 ## License
 
