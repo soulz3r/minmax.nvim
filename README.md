@@ -57,7 +57,7 @@ The same four palettes are available outside Neovim:
 | Amber | `ports/wezterm/minmax-amber.toml` | `ports/termux/minmax-amber.properties` | `ports/fzf/minmax-amber.sh` |
 | Oxide | `ports/wezterm/minmax-oxide.toml` | `ports/termux/minmax-oxide.properties` | `ports/fzf/minmax-oxide.sh` |
 
-All ports preserve the Neovim palette's identity without forcing every ANSI role into the dominant green hue. ANSI slots 0-15 follow the conventional terminal order: black, red, green, yellow, blue, magenta, cyan, and white, followed by their bright counterparts. Blue, magenta, and cyan are carefully muted supporting hues, so directory listings, compiler output, shell prompts, and terminal applications remain visually distinguishable. The mono variant keeps these supporting hues especially restrained. WezTerm keeps its ten core Minmax colors at indexes 16-25 for optional semantic terminal styling; indexes 26-255 remain untouched. The Bash `LS_COLORS` mapping uses the standard ANSI slots instead, so the same file-type colors work in WezTerm and Termux.
+All terminal ports are green-dominant. ANSI slots that traditionally represent blue, magenta, and cyan are remapped to distinct moss, sage, and mint greens. Directories, prompts, selections, and important UI markers use bold or bright green for clear hierarchy. Amber remains available for emphasis and warnings, while red is reserved for errors and archives. No blue hues are used in the terminal palettes. WezTerm keeps its ten core Minmax colors at indexes 16-25 for optional semantic terminal styling; indexes 26-255 remain untouched. The Bash `LS_COLORS` mapping uses the standard ANSI slots instead, so the same file-type colors work in WezTerm and Termux.
 
 ### WezTerm
 
@@ -88,7 +88,7 @@ Source the matching shell file from your shell startup:
 source /path/to/minmax.nvim/ports/fzf/minmax-phosphor.sh
 ```
 
-fzf keeps the terminal background transparent and the current selection on a muted surface. Matches and prompts use the variant's warm accent, while headers and metadata use blue, pointers use cyan, and spinners use magenta. This gives each part of the picker a clear role instead of painting the whole interface green.
+fzf keeps the terminal background transparent and the current selection on a muted surface. fzf uses a bold green hierarchy: bright green prompts, pointers, markers, and selected text, with darker green selection surfaces. The variant's amber or copper accent remains available for matches and emphasis. No blue, cyan, or magenta is used.
 
 ## License
 
