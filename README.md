@@ -57,6 +57,8 @@ The same four palettes are available outside Neovim:
 | Amber | `ports/wezterm/minmax-amber.toml` | `ports/termux/minmax-amber.properties` | `ports/fzf/minmax-amber.sh` |
 | Oxide | `ports/wezterm/minmax-oxide.toml` | `ports/termux/minmax-oxide.properties` | `ports/fzf/minmax-oxide.sh` |
 
+All ports now use the same semantic mapping from the Neovim palette. The 16 ANSI slots map to background, red, mid, accent, dim, string, muted, and foreground, followed by their bright counterparts. WezTerm deliberately leaves indexed colors 16-255 untouched so applications using the standard 256-color cube keep their expected colors.
+
 ### WezTerm
 
 Put the chosen TOML file in a directory WezTerm scans for color schemes. On Windows, the most reliable option is to point `color_scheme_dirs` at the checked-out port directory:
@@ -68,7 +70,7 @@ config.color_scheme = "minmax-phosphor"
 
 On POSIX systems, WezTerm also searches `~/.config/wezterm/colors`.
 
-The scheme keeps the terminal background opaque and uses the same foreground, cursor, selection, and ANSI palette as the Neovim variant.
+The terminal background stays opaque for legible terminal applications. The Neovim colorscheme itself remains transparent.
 
 ### Termux
 
@@ -86,7 +88,7 @@ Source the matching shell file from your shell startup:
 source /path/to/minmax.nvim/ports/fzf/minmax-phosphor.sh
 ```
 
-The fzf theme leaves the terminal background transparent and styles the prompt, highlights, current item, pointer, marker, border, and supporting UI with the selected Minmax palette.
+fzf keeps the terminal background transparent, gives the current selection a muted surface, and uses the variant accent for matches and prompt emphasis.
 
 ## License
 
