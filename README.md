@@ -8,8 +8,8 @@ A minimal, terminal-inspired colorscheme family for Neovim. Built around phospho
 | --- | --- |
 | `minmax-phosphor` | Phosphor green with restrained amber accents |
 | `minmax-mono` | Soft monochrome green |
-| `minmax-amber` | Warm amber terminal with subtle green details |
-| `minmax-oxide` | Muted oxidized teal with copper accents |
+| `minmax-amber` | Warm amber with green details |
+| `minmax-oxide` | Muted oxidized tones with copper accents |
 
 The original `minmax` name remains an alias for `minmax-phosphor`.
 
@@ -57,7 +57,7 @@ The same four palettes are available outside Neovim:
 | Amber | `ports/wezterm/minmax-amber.toml` | `ports/termux/minmax-amber.properties` | `ports/fzf/minmax-amber.sh` |
 | Oxide | `ports/wezterm/minmax-oxide.toml` | `ports/termux/minmax-oxide.properties` | `ports/fzf/minmax-oxide.sh` |
 
-All terminal ports are green-dominant. ANSI slots that traditionally represent blue, magenta, and cyan are remapped to distinct moss, sage, and mint greens. Directories, prompts, selections, and important UI markers use bold or bright green for clear hierarchy. Amber remains available for emphasis and warnings, while red is reserved for errors and archives. No blue hues are used in the terminal palettes. WezTerm keeps its ten core Minmax colors at indexes 16-25 for optional semantic terminal styling; indexes 26-255 remain untouched. The Bash `LS_COLORS` mapping uses the standard ANSI slots instead, so the same file-type colors work in WezTerm and Termux.
+The Neovim colorschemes retain their own four variant identities. The terminal ports intentionally share a separate green-dominant direction: ANSI slots traditionally used for blue, magenta, and cyan are remapped to distinct moss, sage, and mint greens. Directories, prompts, selections, and important UI markers use bold or bright green. Amber remains available for emphasis and warnings; red is reserved for errors and archives. No blue, cyan, or magenta hues are used in these terminal palettes. WezTerm keeps ten additional Minmax colors at indexes 16-25 for optional semantic styling; indexes 26-255 remain untouched. Bash `LS_COLORS` uses portable ANSI codes, so its file-type colors do not depend on WezTerm-specific indexes.
 
 ### WezTerm
 
@@ -70,7 +70,7 @@ config.color_scheme = "minmax-phosphor"
 
 On POSIX systems, WezTerm also searches `~/.config/wezterm/colors`.
 
-The terminal background stays opaque for legible terminal applications. The Neovim colorscheme itself remains transparent.
+The terminal background stays opaque for legible terminal applications. The Neovim colorscheme itself remains transparent. The terminal port changes do not alter the Neovim highlight palette.
 
 ### Termux
 
@@ -88,7 +88,7 @@ Source the matching shell file from your shell startup:
 source /path/to/minmax.nvim/ports/fzf/minmax-phosphor.sh
 ```
 
-fzf keeps the terminal background transparent and the current selection on a muted surface. fzf uses a bold green hierarchy: bright green prompts, pointers, markers, and selected text, with darker green selection surfaces. The variant's amber or copper accent remains available for matches and emphasis. No blue, cyan, or magenta is used.
+fzf keeps the terminal background transparent and the current selection on a muted surface. Prompts, pointers, markers, and selected text use bold green; the selection surface uses a darker green. Variant-specific amber or copper accents remain available for matches and emphasis. No blue, cyan, or magenta is used.
 
 ## License
 
