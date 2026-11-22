@@ -74,11 +74,21 @@ The terminal background stays opaque for legible terminal applications. The Neov
 
 ### Termux
 
-Copy the chosen `.properties` file to `~/.termux/colors.properties`, then reload:
+Copy the chosen terminal palette to `~/.termux/colors.properties`, then reload:
 
 ```sh
+cp ports/termux/minmax-phosphor.properties ~/.termux/colors.properties
 termux-reload-settings
 ```
+
+For Termux Launcher, install the separate Phosphor interface palette too:
+
+```sh
+cp ports/termux/minmax-phosphor-launcher.properties ~/.termux/launcher-theme.properties
+termux-reload-settings
+```
+
+The terminal palette controls text and ANSI colours. The launcher palette controls interface surfaces and accents, including the dock, keyboard, app drawer, and command palette. They can be used together; the launcher palette also works with wallpaper colours enabled.
 
 ### fzf
 
