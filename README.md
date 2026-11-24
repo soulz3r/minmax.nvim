@@ -50,14 +50,29 @@ No globals, setup calls, or custom commands are required.
 
 The same four palettes are available outside Neovim:
 
-| Variant | WezTerm | Termux | fzf |
-| --- | --- | --- | --- |
-| Phosphor | `ports/wezterm/minmax-phosphor.toml` | `ports/termux/minmax-phosphor.properties` | `ports/fzf/minmax-phosphor.sh` |
-| Mono | `ports/wezterm/minmax-mono.toml` | `ports/termux/minmax-mono.properties` | `ports/fzf/minmax-mono.sh` |
-| Amber | `ports/wezterm/minmax-amber.toml` | `ports/termux/minmax-amber.properties` | `ports/fzf/minmax-amber.sh` |
-| Oxide | `ports/wezterm/minmax-oxide.toml` | `ports/termux/minmax-oxide.properties` | `ports/fzf/minmax-oxide.sh` |
+| Variant | Kitty | WezTerm | Termux | fzf |
+| --- | --- | --- | --- | --- |
+| Phosphor | `ports/kitty/minmax-phosphor.conf` | `ports/wezterm/minmax-phosphor.toml` | `ports/termux/minmax-phosphor.properties` | `ports/fzf/minmax-phosphor.sh` |
+| Mono | `ports/kitty/minmax-mono.conf` | `ports/wezterm/minmax-mono.toml` | `ports/termux/minmax-mono.properties` | `ports/fzf/minmax-mono.sh` |
+| Amber | `ports/kitty/minmax-amber.conf` | `ports/wezterm/minmax-amber.toml` | `ports/termux/minmax-amber.properties` | `ports/fzf/minmax-amber.sh` |
+| Oxide | `ports/kitty/minmax-oxide.conf` | `ports/wezterm/minmax-oxide.toml` | `ports/termux/minmax-oxide.properties` | `ports/fzf/minmax-oxide.sh` |
 
-The Neovim colorschemes retain their own four variant identities. The terminal ports intentionally share a separate green-dominant direction: ANSI slots traditionally used for blue, magenta, and cyan are remapped to distinct moss, sage, and mint greens. Directories, prompts, selections, and important UI markers use bold or bright green. Amber remains available for emphasis and warnings; red is reserved for errors and archives. No blue, cyan, or magenta hues are used in these terminal palettes. WezTerm keeps ten additional Minmax colors at indexes 16-25 for optional semantic styling; indexes 26-255 remain untouched. Bash `LS_COLORS` uses portable ANSI codes, so its file-type colors do not depend on WezTerm-specific indexes.
+The Neovim colorschemes retain their own four variant identities. The terminal ports intentionally share a separate green-dominant direction: ANSI slots traditionally used for blue, magenta, and cyan are remapped to distinct moss, sage, and mint greens. Directories, prompts, selections, and important UI markers use bold or bright green. Amber remains available for emphasis and warnings; red is reserved for errors and archives. No blue, cyan, or magenta hues are used in these terminal palettes. WezTerm keeps ten additional Minmax colors at indexes 16-25 for optional semantic styling; indexes 26-255 remain untouched. Kitty also exposes these ten semantic colors at indexes 16-25. Bash `LS_COLORS` uses portable ANSI codes, so its file-type colors do not depend on WezTerm-specific indexes.
+
+### Kitty
+
+Choose one of the four files in `ports/kitty`. Add an `include` at the end of your `kitty.conf`, pointing to the chosen file:
+
+```conf
+# Use the path where you cloned minmax.nvim.
+include /path/to/minmax.nvim/ports/kitty/minmax-phosphor.conf
+```
+
+Replace `minmax-phosphor.conf` with `minmax-mono.conf`, `minmax-amber.conf`, or `minmax-oxide.conf` to use another variant. Putting the include after existing color definitions makes the Minmax colors take precedence.
+
+The Kitty files contain color definitions only. They do not change fonts, opacity, window decorations, tab-bar visibility, split borders, shaders, animations, or key mappings. Your Kitty appearance settings remain yours to control. The Kitty theme is independent of the Neovim colorscheme: selecting or including a Kitty palette does not call `vim.cmd.colorscheme()`, change Neovim highlights, or replace your custom Neovim theme.
+
+Validate the configuration with `kitty --debug-config`, then reload Kitty's configuration (or restart Kitty).
 
 ### WezTerm
 
